@@ -6,8 +6,8 @@ from flask import (
     Flask, request, render_template, redirect, url_for, flash, abort,
 )
 
-app = Flask(__name__, instance_relative_config=True)
-env_config = os.getenv('APP_SETTINGS', 'config.DevelopmentConfig')
+app = Flask(__name__)
+env_config = os.getenv('APP_SETTINGS')
 app.config.from_object(env_config)
 
 # URL to redirect after sending the e-mail.

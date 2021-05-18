@@ -4,7 +4,7 @@ import os
 class Config:
     ENV = 'production'
     DEBUG = False
-    SECRET_KEY = os.getenv('SECRET_KEY', 'dev')
+    SECRET_KEY = os.getenv('SECRET_KEY')
 
     # E-mail settings.
     MAIL_SERVER = os.getenv('MAIL_SERVER')
