@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Página não encontrada :(
+{% endblock %}
+
+{% block header %}
+  <h1 class="main-title -error">Página não encontrada :(</h1>
+{% endblock %}
+
+{% block content %}
+  <p>
+    Tá perdido por aí? Clica <a href="{{ url_for('index') }}">aqui</a> e volte para a página inicial!
+  </p>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1 class="main-title">
+    Tá tudo configurado certinho? Então testa aí! :D
+  </h1>
+  
+  <a class="main-link" href="https://github.com/willy-r/portfolio-feliz-backend" 
+     target="_blank" rel="noopener noreferrer external"
+     title="Visualizar código no GitHub">
+    <img class="image"  src="{{ url_for('static', filename='images/github-corner-right.svg') }}"
+         alt="Imagem do Octocat do GitHub em um corner triangulado no canto superior direito da página">
+  </a>
+{% endblock %}
+
+{% block content %}
+  <form class="main-form" action="{{ url_for('send_email') }}" method="POST">
+    <legend class="main-title">Me manda um e-mail</legend>
+
+    <label class="main-label" for="name">Nome</label>
+    <input class="main-input" id="name" type="text" name="name" required>
+
+    <label class="main-label" for="email">E-mail</label>
+    <span class="help-message">
+      <input class="main-input" id="email" type="email" name="email" required>
+      <p class="help">
+        Coloca um e-mail válido pra eu poder te responder!
+      </p>
+    </span>
+
+    <label class="main-label" for="message">Mensagem</label>
+    <textarea class="main-input -textarea" id="message" type="text" name="message" required></textarea>
+
+    <button class="main-button" type="submit" title="Send e-mail">Enviar</button>
+  </form>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Erro interno no servidor :(
+{% endblock %}
+
+{% block header %}
+  <h1 class="main-title -error">Erro interno no servidor :(</h1>
+{% endblock %}
+
+{% block content %}
+  <p>
+    Algum erro ocorreu internamente.
+    <br>
+    Você pode abrir uma issue no
+    <a href="{{ url_for('index') }}" target="_blank" rel="noopener noreferrer external">
+      GitHub do projeto
+    </a> para me ajudar.
+  </p>
+{% endblock %}

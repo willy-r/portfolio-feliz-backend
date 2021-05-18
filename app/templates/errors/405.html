@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Método não permitido :(
+{% endblock %}
+
+{% block header %}
+  <h1 class="main-title -error">Método não permitido :(</h1>
+{% endblock %}
+
+{% block content %}
+  <p>
+    Foi mal, mas esse método aí não é permitido não.
+    Clica <a href="{{ url_for('index') }}">aqui</a> e volte para a página inicial!
+  </p>
+{% endblock %}

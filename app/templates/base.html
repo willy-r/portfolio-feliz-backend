@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Backend do portfólio do William para enviar o e-mail. Desenvolvido usando Flask.">
+
+    <title>
+      {% block title %}Simples Envio de E-mail{% endblock %}
+    </title>
+
+    <!-- CSS Local -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
+    <div class="main-container">
+      {% block header %}{% endblock %}
+      {% include 'flash_messages.html' %}
+      {% block content %}{% endblock %}
+    </div>
+
+    <!-- JS -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+  </body>
+</html>

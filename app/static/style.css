@@ -1,0 +1,181 @@
+:root {
+    --color-first: #fbfbfb;
+    --color-second: #d3bdff;
+    --color-second-light: #8243ff;
+    --color-black-first: #141414;
+    --color-black-second: #252525;
+
+    --color-success: #009944;
+    --color-error: 	#cf000f;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: var(--color-first);
+    background-color: var(--color-black-second);
+}
+
+a {
+    color: var(--color-second);
+    text-decoration: none;
+}
+
+.main-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 960px;
+    margin: 20px auto;
+}
+
+.main-title {
+    margin-bottom: 15px;
+    font-weight: 600;
+    font-size: 1.8rem;
+}
+
+.main-title.-error {
+    align-self: flex-start;
+    color: var(--color-error);
+}
+
+.main-link {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.main-link .image {
+    width: 50px;
+    height: 50px;
+}
+
+.main-form {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    width: 100%;
+}
+
+.main-form .main-title {
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 1.6rem;
+    text-align: center;
+}
+
+.main-label { font-size: 1.3rem; }
+
+.main-input {
+    padding: 5px;
+    margin-bottom: 15px;
+    font-family: inherit;
+    font-size: .9rem;
+    border: 2px solid var(--color-black-first);
+    border-radius: 0;
+}
+
+.help-message {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.help-message .main-input { 
+    margin-bottom: 0;
+    width: 100%;
+}
+
+.help {
+    position: absolute;
+    right: -194px;
+    bottom: -65%;
+    padding: 10px;
+    width: 180px;
+    color: var(--color-first);
+    font-size: .8rem;
+    text-align: justify;
+    text-justify: distribute;
+    background-color: var(--color-black-first);
+    border: 1px solid var(--color-first);
+    visibility: hidden;
+}
+
+.help::before {
+    position: absolute;
+    left: -28px;
+    top: 50%;
+    margin-top: -14px;
+    border: 14px solid;
+    border-color: transparent var(--color-second) transparent transparent;
+    content: '';
+}
+
+.main-input.-textarea { 
+    height: 150px;
+    margin-bottom: 25px;
+}
+
+.main-button {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-family: inherit;
+    color: var(--color-first);
+    font-size: .9rem;
+    font-weight: 600;
+    text-align: center;
+    background-color: var(--color-second-light);
+    cursor: pointer;
+    border: 2px solid var(--color-black-first);
+    border-radius: 0;
+    box-shadow: 2px 3px 0 var(--color-black-first);
+    transition: transform 250ms ease-in-out;
+}
+
+.main-button:hover { transform: scale(1.02); }
+
+.flash-messages {
+    display: flex;
+    padding: 5px;
+    background-color: var(--color-first);
+    border: 1px solid var(--color-black-first);
+    border-radius: 5px;
+}
+
+.messages-list {
+    margin-right: 10px;
+    font-size: .9rem;
+    list-style-type: none;
+}
+
+.messages-list .success { color: var(--color-success); }
+
+.messages-list .success::before {
+    font-weight: 600;
+    content: 'Sucesso: ';
+}
+
+.messages-list .error { color: var(--color-error); }
+
+.messages-list .error::before {
+    font-weight: 600;
+    content: 'Erro: ';
+}
+
+.close-button {
+    align-self: flex-start;
+    width: 20px;
+    height: 20px;
+    background-color: var(--color-second);
+    font-family: inherit;
+    font-size: .5rem;
+    border-radius: 10px;
+    border: 1px solid var(--color-black-second);
+    cursor: pointer;
+}
