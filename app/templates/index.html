@@ -14,7 +14,7 @@
 {% endblock %}
 
 {% block content %}
-  <form class="main-form" action="{{ url_for('send_email') }}" method="POST">
+  <form class="main-form" action="{{ url_for('send_email.send_email') }}" method="POST">
     <legend class="main-title">Me manda um e-mail</legend>
 
     <label class="main-label" for="name">Nome</label>
