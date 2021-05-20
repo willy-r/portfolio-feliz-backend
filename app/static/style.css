@@ -36,7 +36,7 @@ a {
 }
 
 .main-title {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     font-weight: 600;
     font-size: 1.8rem;
 }
@@ -94,10 +94,10 @@ a {
 
 .help {
     position: absolute;
-    right: -194px;
+    right: -163px;
     bottom: -65%;
     padding: 10px;
-    width: 180px;
+    width: 150px;
     color: var(--color-first);
     font-size: .8rem;
     text-align: justify;
