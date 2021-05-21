@@ -1,22 +1,19 @@
 from markupsafe import Markup
 from flask_mail import Mail, Message
-from flask import (
-    Blueprint, request, current_app, render_template, redirect, url_for, flash,
-)
+from flask import Blueprint, request, current_app, render_template
 
 bp = Blueprint('send_email', __name__, url_prefix='/')
 mail = Mail()
-app = current_app
 
 
 @bp.post('/send-email')
 def send_email():
-    """Send e-mail from a form.
+    """Send an e-mail.
 
-    The form must have the 'name', 'email' and 'message' name attributes.
+    The keys 'name', 'email' and 'message' is required.
     
-    After sending the e-mail (or not) the response will be redirected to
-    the index page, or if specified, to REDIRECT_TO enviroment variable.
+    Return a json with the result (if the e-mail was sent or not)
+    and a message. 
     """
     name = request.form.get('name')
     email = request.form.get('email')
@@ -28,16 +25,22 @@ def send_email():
     subject = f'E-mail enviado do seu portfólio por {name.split()[0]}'
 
     email_message = Message(subject=subject,
-                            recipients=app.config.get('MAIL_DEFAULT_RECEIVERS'),
+                            recipients=current_app.config.get('MAIL_RECEIVERS'),
                             body=text_email,
                             html=html_email)
     
     try:
         mail.send(email_message)
     except Exception as err:
-        app.logger.error(err)
-        flash('Ocorreu um erro ao enviar o e-mail. :(', 'error')
+        sent = False
+        response_message = 'Ocorreu um erro ao enviar o e-mail. :('
+        # Debug.
+        current_app.logger.error(err)
     else:
-        flash('Seu e-mail foi enviado!', 'success')
+        sent = True
+        response_message = 'Seu e-mail foi enviado!'
     finally:
-        return redirect(app.config.get('REDIRECT_TO') or url_for('index'))
+        return {
+            'sent': sent,
+            'message': response_message,
+        }

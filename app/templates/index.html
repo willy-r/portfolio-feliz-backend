@@ -8,13 +8,18 @@
   <a class="main-link" href="https://github.com/willy-r/portfolio-feliz-backend" 
      target="_blank" rel="noopener noreferrer external"
      title="Visualizar código no GitHub">
-    <img class="image"  src="{{ url_for('static', filename='images/github-corner-right.svg') }}"
+    <img class="image" src="{{ url_for('static', filename='images/github-corner-right.svg') }}"
          alt="Imagem do Octocat do GitHub em um corner triangulado no canto superior direito da página">
   </a>
 {% endblock %}
 
 {% block content %}
-  <form class="main-form" action="{{ url_for('send_email.send_email') }}" method="POST">
+  <div class="flash-messages" id="response">
+    <!-- The message element will be inserted here. -->
+    <button class="close-button" type="button" title="Fechar">&times;</button>
+  </div>
+
+  <form class="main-form">
     <legend class="main-title">Me manda um e-mail</legend>
 
     <label class="main-label" for="name">Nome</label>
@@ -30,7 +35,7 @@
 
     <label class="main-label" for="message">Mensagem</label>
     <textarea class="main-input -textarea" id="message" type="text" name="message" required></textarea>
-
+    
     <button class="main-button" type="submit" title="Enviar e-mail">Enviar</button>
   </form>
 {% endblock %}
