@@ -1,8 +1,6 @@
 from dotenv import load_dotenv
 from flask import Flask, render_template
 
-from app import send_email
-
 load_dotenv()
 
 
@@ -13,8 +11,11 @@ def create_app():
     
     if app.config['ENV'] == 'development':
         app.config.from_object('app.config.DevelopmentConfig')
+
+    from app.send_email import bp, mail
     
-    send_email.mail.init_app(app)
+    # Init Mail.
+    mail.init_app(app)
 
 
     @app.get('/')
@@ -38,6 +39,6 @@ def create_app():
         return render_template('errors/500.html'), 500
     
 
-    app.register_blueprint(send_email.bp)
+    app.register_blueprint(bp)
 
     return app
