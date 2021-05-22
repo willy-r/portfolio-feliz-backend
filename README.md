@@ -55,7 +55,7 @@ POST /send-email
 
 | Description                |
 | :------------------------- |
-| Send an e-mail from a form. The form must have the `name`, `email` and `message` name attributes. |
+| Send an e-mail. The keys `name`, `email` and `message` are required. |
 
   
 ## Demo
@@ -72,5 +72,3 @@ Fork this repo, create a PR and you're done, thanks! <3
 ## Authors
 
 - [@willy-r](https://github.com/willy-r)
-
-  
