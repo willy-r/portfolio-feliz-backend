@@ -10,7 +10,7 @@ mail = Mail()
 def send_email():
     """Send an e-mail.
 
-    The keys 'name', 'email' and 'message' is required.
+    The keys 'name', 'email' and 'message' are required.
     
     Return a json with the result (if the e-mail was sent or not)
     and a message. 
