@@ -1,5 +1,6 @@
 from markupsafe import Markup
 from flask_mail import Mail, Message
+from flask_cors import cross_origin
 from flask import Blueprint, request, current_app, render_template
 
 bp = Blueprint('send_email', __name__, url_prefix='/')
@@ -7,6 +8,7 @@ mail = Mail()
 
 
 @bp.post('/send-email')
+@cross_origin()
 def send_email():
     """Send an e-mail.
 
