@@ -127,7 +127,7 @@ a {
     padding-bottom: 10px;
     font-family: inherit;
     color: var(--color-first);
-    font-size: .9rem;
+    font-size: 1.2rem;
     font-weight: 600;
     text-align: center;
     background-color: var(--color-second-light);
@@ -137,6 +137,10 @@ a {
     box-shadow: 2px 3px 0 var(--color-black-first);
     transition: transform 250ms ease-in-out;
 }
+
+.main-button:disabled { cursor: wait; }
+
+.main-button:disabled:hover { transform: none; }
 
 .main-button:hover { transform: scale(1.02); }
 
